@@ -33,7 +33,7 @@ rp.get('https://www.gitlab.com/api/v4/groups', {
           'PRIVATE-TOKEN': token
         }
       }).then(projects => {
-        let ps = _.map(projects, 'http_url_to_repo')
+        let ps = _.map(projects, 'ssh_url_to_repo')
         for (let p of ps) {
           pgits.push(p);
         }
