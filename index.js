@@ -5,6 +5,7 @@ let _ = require('lodash');
 let configJson = require('./config')
 
 const token = configJson.token;
+const backupDir = configJson.dir;
 
 let Promise = require('bluebird')
 let cmd = require('node-cmd')
@@ -42,7 +43,7 @@ rp.get('https://www.gitlab.com/api/v4/groups', {
   Promise.all(promises).then(() => {
     console.log(pgits);
     for (let git of pgits) {
-      cmd.run(`git clone ${git} backup/${git.substring(19,git.length-4)}`);
+      cmd.run(`git clone ${git} ${backupDir}/${git.substring(19,git.length-4)}`);
     }
   });
 })
