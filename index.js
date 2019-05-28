@@ -43,7 +43,7 @@ rp.get('https://www.gitlab.com/api/v4/groups', {
   Promise.all(promises).then(() => {
     console.log(pgits);
     for (let git of pgits) {
-      cmd.run(`git clone ${git} ${backupDir}/${git.substring(19,git.length-4)}`);
+      cmd.run(`git clone ${git} ${backupDir}/${git.substring(25,git.length-4)}`);
     }
   });
 })
