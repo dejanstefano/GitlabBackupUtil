@@ -2,9 +2,9 @@
 
 let rp = require('request-promise');
 let _ = require('lodash');
-let tokenJson = require('./token')
+let configJson = require('./config')
 
-const token = tokenJson.token;
+const token = configJson.token;
 
 let Promise = require('bluebird')
 let cmd = require('node-cmd')
