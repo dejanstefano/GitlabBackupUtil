@@ -1,6 +1,6 @@
 # GitlabBackupUtil
 
-# Shamelessly stolen and modified from https://github.com/itsTeknas/GitlabBackupUtil - Thanks!
+### Shamelessly stolen and modified from https://github.com/itsTeknas/GitlabBackupUtil - Thanks!
 
 A Small utility to backup all of your gitlab repositories to local filesystem.
 
