@@ -1,13 +1,18 @@
 # GitlabBackupUtil
 
+# Shamelessly stolen and modified from https://github.com/itsTeknas/GitlabBackupUtil - Thanks!
+
 A Small utility to backup all of your gitlab repositories to local filesystem.
 
 Before running the script, make sure you have persisted authentication on local cli with gitlab.
 
-Create a file named `token.json` with the structure
+This specifically works for Slicelife repos.  It would need to be modified to work for other institutions.
+
+Create a file named `config.json` with the structure
 ```javascript
 {
-    "token" : "YOUR_GITLAB_TOKEN"
+    "token" : "YOUR_GITLAB_TOKEN",
+    "dir" : "Absolute path to backup dir"
 }
 
 ```
@@ -19,10 +24,5 @@ run the following commands
 npm install
 npm start
 ```
-
-#### Future Scope
-* - [ ] If the repository already exists, `git pull` instead of cloning
-* - [ ] Gui for entering token
-
 
 ### Thats It :rocket:, Now go backup
