@@ -26,14 +26,14 @@ rp.get('https://www.gitlab.com/api/v4/groups', {
     promises.push(
       rp.get(`https://www.gitlab.com/api/v4/groups/${gid}/projects`, {
         json: true,
-        qs: {
-          simple: true,
-        },
         headers: {
           'PRIVATE-TOKEN': token
         }
       }).then(projects => {
-        let ps = _.map(projects, 'ssh_url_to_repo')
+        var notmirrors = projects.filter(function (project) {
+          return project.mirror === false;
+        });
+        let ps = _.map(notmirrors, 'ssh_url_to_repo')
         for (let p of ps) {
           pgits.push(p);
         }
