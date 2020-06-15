@@ -4,6 +4,8 @@
 
 A Small utility to backup all of your gitlab repositories to local filesystem.
 
+__This is only clone repos that aren't mirrored from another SCM__
+
 Before running the script, make sure you have persisted authentication on local cli with gitlab.
 
 This specifically works for Slicelife repos.  It would need to be modified to work for other institutions.
