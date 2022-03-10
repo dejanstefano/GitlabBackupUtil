@@ -10,6 +10,10 @@ const backupDir = configJson.dir;
 let Promise = require('bluebird')
 let cmd = require('node-cmd')
 
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
 rp.get('https://www.gitlab.com/api/v4/groups', {
   json: true,
   qs: {
@@ -40,10 +44,11 @@ rp.get('https://www.gitlab.com/api/v4/groups', {
       })
     )
   }
-  Promise.all(promises).then(() => {
+  Promise.all(promises).then(async () => {
     console.log(pgits);
     for (let git of pgits) {
-      cmd.run(`git clone ${git} ${backupDir}/${git.substring(25,git.length-4)}`);
+      await sleep(3000)
+      cmd.run(`git clone ${git} ${backupDir}/${git.substring(25, git.length - 4)}`);
     }
   });
 })
